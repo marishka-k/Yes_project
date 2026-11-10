@@ -1,0 +1,40 @@
+.favorite-button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: var(--color-text);
+  --icon-fill: var(--color-card);
+}
+
+.favorite-button_active {
+  --icon-fill: var(--color-accent);
+}
+
+.favorite-button_variant_overlay {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: none;
+}
+
+.favorite-button_variant_overlay:hover {
+  --icon-fill: var(--color-accent);
+}
+
+.favorite-button_variant_boxed {
+  flex: none;
+  width: var(--button-l-h);
+  height: var(--button-l-h);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-s);
+  background: var(--color-card);
+}
+
+.favorite-button_variant_boxed:hover {
+  border-color: var(--color-text);
+}
+
+.favorite-button_variant_boxed svg {
+  width: 24px;
+  height: 24px;
+}

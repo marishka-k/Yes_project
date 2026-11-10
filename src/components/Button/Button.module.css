@@ -1,0 +1,58 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 100%;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-s);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+}
+
+.button_size_s {
+  min-height: var(--button-h);
+  padding: 4px 20px;
+  font-size: var(--fs-button);
+}
+
+.button_size_l {
+  min-height: var(--button-l-h);
+  padding: 4px 20px;
+  font-size: var(--fs-button-l);
+}
+
+.button_wide {
+  width: 100%;
+}
+
+.button_variant_primary {
+  background: var(--color-accent);
+}
+
+.button_variant_secondary {
+  background: var(--color-card);
+}
+
+.button_variant_primary:hover,
+.button_variant_secondary:hover {
+  border-color: var(--color-text);
+}
+
+/* Не активная: обводка и вспомогательный текст (Button disabled — 16 Medium) */
+.button:disabled,
+.button[aria-disabled='true'] {
+  background: transparent;
+  border-color: var(--color-accent);
+  color: var(--color-secondary);
+  font-weight: 500;
+  cursor: default;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}

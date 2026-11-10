@@ -1,0 +1,40 @@
+.order-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.order-success__number {
+  margin-top: 40px;
+  font-size: var(--fs-card-name);
+  font-weight: 600;
+}
+
+.order-success__text {
+  margin-top: 40px;
+}
+
+.order-success__button {
+  margin-top: 40px;
+}
+
+@media (min-width: 1024px) {
+  .order-success {
+    min-height: 412px;
+    padding-bottom: 80px;
+  }
+
+  .order-success__number {
+    margin-top: 50px;
+  }
+
+  .order-success__text {
+    margin-top: 56px;
+  }
+
+  .order-success__button {
+    min-width: 276px;
+    margin-top: 56px;
+  }
+}

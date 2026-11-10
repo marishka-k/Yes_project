@@ -1,0 +1,8 @@
+.favorites-page {
+  padding-top: var(--page-top);
+  padding-bottom: calc(var(--section-gap) * 1.6);
+}
+
+.favorites-page__title {
+  margin: 14px 0 24px;
+}

@@ -1,0 +1,129 @@
+.catalog-page {
+  padding-top: var(--page-top);
+  padding-bottom: calc(var(--section-gap) * 1.6);
+}
+
+.catalog-page__content {
+  min-width: 0;
+}
+
+.catalog-page__title {
+  margin: 14px 0 16px;
+}
+
+.catalog-page__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.catalog-page__filters-button {
+  flex: none;
+  font-weight: 500;
+}
+
+.catalog-page__badge {
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  border-radius: 10px;
+  background: var(--color-accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.catalog-page__sort {
+  flex: 1;
+  min-width: 160px;
+}
+
+.catalog-page__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+
+.catalog-page__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 20px;
+}
+
+.catalog-page__grid {
+  margin-top: 24px;
+}
+
+.catalog-page__content > :last-child:not(.catalog-page__grid) {
+  margin-top: 24px;
+}
+
+@media (min-width: 600px) {
+  .catalog-page__sort {
+    flex: none;
+    width: 286px;
+  }
+
+  .catalog-page__chips {
+    width: auto;
+  }
+}
+
+/* Лаптоп и десктоп: фильтры — первая колонка сетки карточек, справа 3 колонки */
+@media (min-width: 1024px) {
+  .catalog-page {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: var(--grid-gap);
+  }
+
+  .catalog-page__content {
+    grid-column: 2 / -1;
+  }
+
+  .catalog-page__toolbar {
+    flex-wrap: nowrap;
+    gap: 20px;
+  }
+
+  .catalog-page__sort {
+    flex: 0 1 286px;
+    min-width: 200px;
+    margin-right: 10px;
+  }
+
+  .catalog-page__chips {
+    flex-wrap: nowrap;
+    gap: 20px;
+  }
+
+  .catalog-page__tags {
+    margin-top: 32px;
+  }
+
+  .catalog-page__grid,
+  .catalog-page__content > :last-child:not(.catalog-page__grid) {
+    margin-top: 31px;
+  }
+}
+
+/* На лаптопе плашки категорий переносятся под сортировку — иначе не помещаются */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .catalog-page {
+    grid-template-columns: 248px repeat(3, minmax(0, 1fr));
+  }
+
+  .catalog-page__toolbar {
+    flex-wrap: wrap;
+  }
+
+  .catalog-page__chips {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}

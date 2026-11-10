@@ -1,0 +1,85 @@
+.profile-page {
+  padding-top: var(--page-top);
+  padding-bottom: calc(var(--section-gap) * 1.6);
+}
+
+.profile-page__title {
+  margin: 14px 0 24px;
+}
+
+.profile-page__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.profile-page__table thead {
+  display: none;
+}
+
+/* Телефон: каждая строка — карточка с подписями слева */
+.profile-page__table tr {
+  display: block;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-s);
+  background: var(--color-card);
+}
+
+.profile-page__table td {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 0;
+  font-weight: 700;
+}
+
+.profile-page__table td::before {
+  content: attr(data-label);
+  font-weight: 400;
+}
+
+.profile-page__note {
+  margin-top: 24px;
+  color: var(--color-secondary);
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .profile-page__table thead {
+    display: table-header-group;
+  }
+
+  .profile-page__table th {
+    padding: 0 12px;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  .profile-page__table tr {
+    display: table-row;
+  }
+
+  .profile-page__table td {
+    display: table-cell;
+    padding: 16px 12px;
+    border-top: 1px solid var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+    background: var(--color-card);
+  }
+
+  .profile-page__table td::before {
+    content: none;
+  }
+
+  .profile-page__table td:first-child {
+    border-left: 1px solid var(--color-accent);
+    border-radius: var(--radius-s) 0 0 var(--radius-s);
+  }
+
+  .profile-page__table td:last-child {
+    border-right: 1px solid var(--color-accent);
+    border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  }
+}

@@ -1,0 +1,112 @@
+.price-range {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price-range__fields {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.price-range__field {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  max-width: 125px;
+}
+
+.price-range__input {
+  width: 100%;
+  min-width: 0;
+  height: var(--field-h);
+  padding: 0 6px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-s);
+  background: var(--color-card);
+  font-size: var(--fs-body);
+}
+
+.price-range__input:hover,
+.price-range__input:focus {
+  border-color: var(--color-text);
+  outline: none;
+}
+
+/* Плашка ползунка: акцентная рамка, внутри — тёмная дорожка-«капсула» как в макете */
+.price-range__slider {
+  position: relative;
+  height: var(--field-h);
+  margin: 0 8px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-s);
+}
+
+.price-range__track {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  right: 8px;
+  height: 12px;
+  border: 2px solid var(--color-text);
+  border-radius: 6px;
+  background: var(--color-card);
+  transform: translateY(-50%);
+}
+
+.price-range__fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 4px;
+  background: var(--color-accent);
+}
+
+.price-range__thumb {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: 100%;
+  margin: 0;
+  background: none;
+  appearance: none;
+  pointer-events: none;
+}
+
+.price-range__thumb::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-text);
+  border-radius: 50%;
+  background: var(--color-card);
+  appearance: none;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.price-range__thumb::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--color-text);
+  border-radius: 50%;
+  background: var(--color-card);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.price-range__thumb::-moz-range-track {
+  background: none;
+}
+
+.price-range__thumb:focus-visible {
+  outline: none;
+}
+
+.price-range__thumb:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}

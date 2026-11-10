@@ -1,0 +1,81 @@
+.footer {
+  border-top: 1px solid var(--color-accent);
+  background: var(--color-card);
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px var(--grid-gap);
+  padding-top: 24px;
+  padding-bottom: 16px;
+}
+
+.footer__title {
+  margin-bottom: 8px;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__link {
+  display: inline-block;
+  padding: 2px 0;
+  font-size: var(--fs-body);
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.footer__link:hover {
+  color: var(--color-accent);
+}
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  grid-column: 1 / -1;
+}
+
+.footer__social {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-text);
+}
+
+.footer__social:hover {
+  color: var(--color-accent);
+}
+
+.footer__note {
+  grid-column: 1 / -1;
+  font-size: var(--fs-body);
+  color: var(--color-secondary);
+}
+
+/* Лаптоп и десктоп: колонки по сетке карточек, соцсети справа внизу */
+@media (min-width: 1024px) {
+  .footer__inner {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding-top: 25px;
+  }
+
+  .footer__socials {
+    grid-column: 4;
+    align-self: end;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-right: -10px;
+  }
+
+  .footer__note {
+    margin-top: -8px;
+  }
+}

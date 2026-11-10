@@ -1,0 +1,13 @@
+.rating {
+  display: inline-flex;
+  gap: 1px;
+  color: var(--color-text);
+}
+
+.rating__star {
+  --icon-fill: var(--color-card);
+}
+
+.rating__star_filled {
+  --icon-fill: var(--color-accent);
+}

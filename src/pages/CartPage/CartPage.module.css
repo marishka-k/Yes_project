@@ -1,0 +1,51 @@
+.cart-page {
+  padding-top: var(--page-top);
+  padding-bottom: calc(var(--section-gap) * 1.6);
+}
+
+.cart-page__title {
+  margin: 14px 0 20px;
+}
+
+.cart-page__layout {
+  display: grid;
+  gap: 20px;
+}
+
+.cart-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.cart-page__section {
+  margin-top: var(--section-gap);
+}
+
+.cart-page__section-title {
+  margin-bottom: 24px;
+}
+
+/* Лаптоп и десктоп: позиции — 3 колонки сетки, итог — четвёртая */
+@media (min-width: 1024px) {
+  .cart-page__layout {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    column-gap: var(--grid-gap);
+  }
+
+  .cart-page__list {
+    grid-column: 1 / 4;
+  }
+}
+
+@media (min-width: 1440px) {
+  .cart-page__title {
+    margin: 16px 0 17px;
+  }
+
+  .cart-page__section {
+    margin-top: 40px;
+  }
+}

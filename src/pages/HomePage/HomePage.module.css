@@ -1,0 +1,17 @@
+.home-page {
+  padding-bottom: calc(var(--section-gap) * 1.6);
+}
+
+.home-page__cards {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+.home-page__section:last-child .home-page__cards {
+  padding-bottom: 0;
+}
+
+.home-page__note {
+  margin-bottom: 16px;
+  color: var(--color-secondary);
+}

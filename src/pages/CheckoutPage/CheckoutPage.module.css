@@ -1,0 +1,212 @@
+.checkout-page {
+  padding-top: var(--page-top);
+  padding-bottom: calc(var(--section-gap) * 2.4);
+}
+
+.checkout-page__title {
+  margin: 24px 0 24px;
+}
+
+.checkout-page__layout {
+  display: grid;
+  gap: 24px;
+}
+
+/* Левая панель: контакты, доставка, оплата */
+.checkout-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px 8px 20px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-m);
+  background: var(--color-card);
+}
+
+.checkout-page__block {
+  min-width: 0;
+}
+
+.checkout-page__heading {
+  width: 100%;
+  margin-bottom: 12px;
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Сетка полей: 6 колонок на телефоне, 12 — от 600 px */
+.checkout-page__grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px 10px;
+}
+
+.checkout-page__cell_full,
+.checkout-page__cell_wide,
+.checkout-page__cell_after,
+.checkout-page__cell_pair {
+  grid-column: span 6;
+}
+
+.checkout-page__cell_half,
+.checkout-page__cell_third,
+.checkout-page__cell_small {
+  grid-column: span 3;
+}
+
+.checkout-page__map-button {
+  grid-column: span 6;
+}
+
+.checkout-page__address {
+  margin-top: 24px;
+}
+
+.checkout-page__options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkout-page__option {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.checkout-page__option-title {
+  display: block;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.checkout-page__option-hint {
+  display: block;
+  line-height: 1.1;
+  color: var(--color-secondary);
+}
+
+.checkout-page__option-price {
+  flex: none;
+  font-weight: 700;
+}
+
+.checkout-page__systems {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 30px;
+  margin: 24px 0 20px;
+}
+
+.checkout-page__systems label {
+  gap: 16px;
+}
+
+.checkout-page__system-logo {
+  height: auto;
+}
+
+.checkout-page__hint {
+  margin-top: 12px;
+  color: var(--color-secondary);
+}
+
+.checkout-page__consents {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkout-page__consents-title {
+  margin-bottom: 12px;
+}
+
+.checkout-page__consent-link {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+}
+
+.checkout-page__error {
+  margin-top: 8px;
+  color: var(--color-error);
+  text-align: center;
+}
+
+.checkout-page__submit {
+  display: flex;
+  width: 100%;
+  max-width: 325px;
+  margin: 30px auto 0;
+}
+
+/* Пока не даны согласия, кнопка выглядит не активной (как в макете), но остаётся нажимаемой — чтобы показать, чего не хватает */
+.checkout-page__submit[aria-disabled='true'] {
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .checkout-page__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 12px 30px;
+  }
+
+  .checkout-page__address {
+    gap: 12px 10px;
+  }
+
+  .checkout-page__cell_full,
+  .checkout-page__cell_after {
+    grid-column: span 12;
+  }
+
+  .checkout-page__cell_half,
+  .checkout-page__cell_pair {
+    grid-column: span 6;
+  }
+
+  .checkout-page__cell_third {
+    grid-column: span 4;
+  }
+
+  .checkout-page__cell_small {
+    grid-column: span 3;
+  }
+
+  .checkout-page__cell_wide {
+    grid-column: span 8;
+  }
+
+  .checkout-page__map-button {
+    grid-column: span 4;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .checkout-page__map-button_small {
+    grid-column: span 3;
+  }
+}
+
+/* Лаптоп и десктоп: две равные колонки, как в макете */
+@media (min-width: 1024px) {
+  .checkout-page__layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: var(--grid-gap);
+  }
+
+  .checkout-page__form {
+    padding: 8px 8px 12px;
+    border-width: 2px;
+  }
+
+  .checkout-page__title {
+    margin: 36px 0 34px;
+  }
+}
