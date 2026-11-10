@@ -1,6 +1,9 @@
+/* Шире макета (1440) фото не растягивается: стоит по центру */
 .hero {
   position: relative;
+  max-width: var(--page-max);
   height: var(--hero-h);
+  margin: 0 auto;
   overflow: hidden;
 }
 
@@ -76,5 +79,13 @@
   .hero__content {
     padding-right: 127px;
     padding-bottom: 96px;
+  }
+}
+
+/* Широкие экраны: края фото мягко растворяются в фоне страницы */
+@media (min-width: 1500px) {
+  .hero__image {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
   }
 }
