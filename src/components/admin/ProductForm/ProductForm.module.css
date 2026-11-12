@@ -1,0 +1,127 @@
+/* Мобильная: фото сверху, поля в столбик (подписи над полями до 599 px) */
+.product-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+.product-form__fields {
+  --form-label-w: 105px;
+  --field-bg: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Ширины полей из макета (1440): название 497, списки с «+» 457, короткие 181 */
+.product-form__wide,
+.product-form_mode_edit .product-form__article {
+  --form-control-w: 497px;
+}
+
+.product-form_mode_create .product-form__article {
+  --form-control-w: 274px;
+}
+
+.product-form__long {
+  --form-control-w: 457px;
+}
+
+.product-form__short {
+  --form-control-w: 181px;
+}
+
+.product-form__line {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.product-form__line > :first-child {
+  flex: 1;
+}
+
+.product-form__plus {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-s);
+  background: none;
+  color: var(--color-text);
+}
+
+.product-form__plus:hover {
+  color: var(--color-accent);
+}
+
+.product-form__prices {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-form__description textarea {
+  height: 76px;
+}
+
+.product-form__lists {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.product-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px 16px;
+}
+
+@media (min-width: 600px) {
+  .product-form__line {
+    align-items: flex-start;
+  }
+
+  .product-form__line > :first-child {
+    flex: 0 1 calc(var(--form-label-w) + var(--form-control-w));
+  }
+
+  .product-form__prices {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+  }
+
+  .product-form__prices > * {
+    flex: 0 1 calc(var(--form-label-w) + var(--form-control-w));
+  }
+
+  .product-form__lists {
+    grid-template-columns: repeat(2, minmax(0, 286px));
+    gap: 30px;
+  }
+}
+
+/* С 1024 px: фото в колонке шириной бокового меню, поля справа */
+@media (min-width: 1024px) {
+  .product-form {
+    grid-template-columns: var(--admin-side-w) minmax(0, 1fr);
+    column-gap: var(--admin-gap);
+    row-gap: 40px;
+  }
+
+  .product-form__fields {
+    gap: 20px;
+    max-width: 707px;
+  }
+
+  .product-form__actions {
+    grid-column: 1 / -1;
+  }
+}

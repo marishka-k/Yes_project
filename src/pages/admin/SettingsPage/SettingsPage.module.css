@@ -1,0 +1,33 @@
+.settings-page__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 16px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-s);
+  background: var(--color-card);
+}
+
+.settings-page__heading {
+  font-size: var(--fs-card-name);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.settings-page__text {
+  color: var(--color-secondary);
+}
+
+.settings-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (min-width: 1024px) {
+  .settings-page__card {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,33 @@
+.admin-notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 8px 8px 8px 16px;
+  border: 1px solid var(--color-accent);
+  border-left-width: 6px;
+  border-radius: var(--radius-s);
+  background: var(--color-card);
+}
+
+.admin-notice__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-notice__close {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-s);
+  background: none;
+  color: var(--color-text);
+}
+
+.admin-notice__close:hover {
+  background: var(--color-bg);
+}

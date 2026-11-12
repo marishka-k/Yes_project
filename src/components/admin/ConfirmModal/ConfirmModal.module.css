@@ -1,0 +1,12 @@
+.confirm-modal__text {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.confirm-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}

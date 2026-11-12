@@ -4,11 +4,12 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import ProductGrid from '../../components/ProductGrid/ProductGrid';
 import EmptyState from '../../components/EmptyState/EmptyState';
 import { useStore } from '../../store/StoreContext';
-import { productById } from '../../data/products';
+import { useCatalog } from '../../store/CatalogContext';
 import styles from './FavoritesPage.module.css';
 
 export default function FavoritesPage() {
   const { favorites } = useStore();
+  const { productById } = useCatalog();
   const list = favorites.map((id) => productById[id]).filter(Boolean);
 
   return (

@@ -1,0 +1,114 @@
+.sales-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Легенда — рамка с кружками, по центру над графиком */
+.sales-chart__legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  max-width: 100%;
+  padding: 6px 16px;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-s);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.sales-chart__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sales-chart__dot {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.sales-chart__dot_orders {
+  background: var(--color-accent);
+}
+
+.sales-chart__dot_returns {
+  background: var(--color-error);
+}
+
+.sales-chart__canvas {
+  position: relative;
+  width: 100%;
+  height: var(--chart-h);
+  margin-top: 16px;
+}
+
+.sales-chart__svg {
+  display: block;
+  overflow: visible;
+}
+
+.sales-chart__empty {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--color-secondary);
+}
+
+.sales-chart__axis {
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sales-chart__tick {
+  stroke: var(--color-text);
+  stroke-width: 3;
+}
+
+.sales-chart__label {
+  fill: var(--color-text);
+  font-size: var(--fs-body);
+  font-weight: 700;
+}
+
+.sales-chart__line {
+  fill: none;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.sales-chart__line_orders {
+  stroke: var(--color-accent);
+}
+
+.sales-chart__line_returns {
+  stroke: var(--color-error);
+}
+
+.sales-chart__hit {
+  fill: transparent;
+}
+
+.sales-chart__hit:hover {
+  fill: var(--color-accent);
+  fill-opacity: 0.15;
+}
+
+@media (min-width: 1024px) {
+  .sales-chart__legend {
+    padding: 6px 20px;
+    gap: 8px 40px;
+  }
+
+  .sales-chart__canvas {
+    margin-top: 24px;
+  }
+}

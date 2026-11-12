@@ -14,7 +14,7 @@ import ProductGrid from '../../components/ProductGrid/ProductGrid';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import { useStore } from '../../store/StoreContext';
-import { productById } from '../../data/products';
+import { useCatalog } from '../../store/CatalogContext';
 import { categoryById, colorById } from '../../data/categories';
 import { reviews } from '../../data/reviews';
 import { relatedProducts, similarProducts } from '../../utils/catalog';
@@ -118,6 +118,7 @@ function ProductDetails({ product }) {
               </div>
             ))}
           </dl>
+          {product.description && <p className={styles['product-page__description']}>{product.description}</p>}
 
           <Price size="l" value={product.price} old={product.oldPrice} className={styles['product-page__price']} />
 
@@ -143,6 +144,7 @@ function ProductDetails({ product }) {
 
 export default function ProductPage() {
   const { id } = useParams();
+  const { products, productById } = useCatalog();
   const product = productById[id];
   if (!product) return <NotFoundPage />;
 
@@ -169,14 +171,14 @@ export default function ProductPage() {
         <PageTitle as="h2" id="related" className={styles['product-page__section-title']}>
           С этим товаром покупают
         </PageTitle>
-        <ProductGrid products={relatedProducts(product)} />
+        <ProductGrid products={relatedProducts(product, products)} />
       </Container>
 
       <Container as="section" className={styles['product-page__section']} aria-labelledby="similar">
         <PageTitle as="h2" id="similar" className={styles['product-page__section-title']}>
           Похожие товары
         </PageTitle>
-        <ProductGrid products={similarProducts(product)} />
+        <ProductGrid products={similarProducts(product, products)} />
       </Container>
     </div>
   );

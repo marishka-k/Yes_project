@@ -88,6 +88,13 @@ h2.product-page__label {
   line-height: 1.1;
 }
 
+/* Описание из админки (у базовых товаров его нет) */
+.product-page__description {
+  margin-top: 12px;
+  line-height: 1.25;
+  white-space: pre-line;
+}
+
 .product-page__spec {
   display: flex;
   flex-wrap: wrap;

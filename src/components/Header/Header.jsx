@@ -83,7 +83,7 @@ export default function Header() {
       <Drawer isOpen={menuOpen} onClose={() => setMenuOpen(false)} title="Меню">
         <nav aria-label="Мобильное меню">
           <ul className={styles['header__drawer-list']}>
-            {[...mainNav, { to: '/favorites', label: 'Избранное' }, { to: '/cart', label: 'Корзина' }, { to: '/profile', label: 'Личный кабинет' }].map(
+            {[...mainNav, { to: '/favorites', label: 'Избранное' }, { to: '/cart', label: 'Корзина' }, { to: '/profile', label: 'Личный кабинет' }, { to: '/admin', label: 'Админка (демо)' }].map(
               (item) => (
                 <li key={item.to}>
                   <NavLink to={item.to} end={item.end} className={navClass}>

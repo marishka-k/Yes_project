@@ -1,0 +1,32 @@
+/* Мобильная: плитка-карточка (подпись над числом); с 1024 px — в строку, как в макете */
+.stat-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-s);
+  background: var(--color-card);
+}
+
+.stat-tile__label {
+  font-size: var(--fs-body);
+  line-height: 1.25;
+}
+
+.stat-tile__value {
+  font-size: var(--fs-card-name);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media (min-width: 1024px) {
+  .stat-tile {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 16px;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+}

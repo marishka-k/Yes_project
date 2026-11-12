@@ -1,0 +1,111 @@
+.scroll-list {
+  position: relative;
+  min-width: 0;
+}
+
+.scroll-list__title {
+  padding-right: 40px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+/* Отсчёт top в fieldset идёт от низа legend — поднимаем кнопку на её высоту (32 px) */
+.scroll-list__add {
+  position: absolute;
+  top: -32px;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-right: -5px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-s);
+  background: none;
+  color: var(--color-text);
+}
+
+.scroll-list__add:hover {
+  color: var(--color-accent);
+}
+
+.scroll-list__box {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* 4 строки по 40 px, как в макете; своя полоса справа вместо системной */
+.scroll-list__list {
+  flex: 1;
+  min-width: 0;
+  height: 162px;
+  padding: 2px 4px 2px 18px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.scroll-list__list::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-list__list li {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+.scroll-list__rail {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  width: 22px;
+  height: 162px;
+  padding: 2px 0;
+  border: 1px solid var(--color-accent);
+  border-radius: 11px;
+}
+
+.scroll-list__rail_idle {
+  opacity: 0.4;
+}
+
+.scroll-list__step {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text);
+  --icon-fill: transparent;
+}
+
+.scroll-list__step_down svg {
+  transform: rotate(180deg);
+}
+
+.scroll-list__track {
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+.scroll-list__thumb {
+  position: absolute;
+  left: 50%;
+  width: 14px;
+  height: 36px;
+  margin-left: -7px;
+  border: 2px solid var(--color-text);
+  border-radius: 7px;
+  background: var(--color-card);
+}
+
+.scroll-list__error {
+  margin-top: 4px;
+  color: var(--color-error);
+}

@@ -1,0 +1,11 @@
+.status-badge {
+  font-weight: 700;
+}
+
+.status-badge_tone_alert {
+  color: var(--color-error);
+}
+
+.status-badge_tone_muted {
+  color: var(--color-secondary);
+}

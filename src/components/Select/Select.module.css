@@ -1,6 +1,9 @@
 .select {
-  position: relative;
   width: 100%;
+}
+
+.select__box {
+  position: relative;
 }
 
 .select__control {
@@ -28,4 +31,53 @@
   color: var(--color-text);
   transform: translateY(-50%) rotate(180deg);
   pointer-events: none;
+}
+
+.select__control_empty {
+  color: var(--color-secondary);
+}
+
+.select__control option {
+  color: var(--color-text);
+}
+
+.select__control_invalid,
+.select__control_invalid:hover {
+  border-color: var(--color-error);
+}
+
+.select__error {
+  margin-top: 4px;
+  font-size: var(--fs-body);
+  line-height: 1.2;
+  color: var(--color-error);
+}
+
+/* Подпись слева от поля (форма товара в админке); на телефоне — над полем */
+.select_layout_row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.select__label {
+  font-size: var(--fs-body);
+  line-height: 1.1;
+}
+
+.select_layout_row .select__error {
+  margin-top: 0;
+}
+
+@media (min-width: 600px) {
+  .select_layout_row {
+    display: grid;
+    grid-template-columns: var(--form-label-w, 100px) minmax(0, var(--form-control-w, 1fr));
+    align-items: center;
+    gap: 4px 0;
+  }
+
+  .select_layout_row .select__error {
+    grid-column: 2;
+  }
 }

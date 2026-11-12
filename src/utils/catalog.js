@@ -4,7 +4,8 @@ import { products } from '../data/products';
 
 export const LIST_KEYS = ['category', 'gender', 'size', 'color'];
 
-// Границы цены для ползунка: от 0 до ближайшей тысячи выше самой дорогой позиции
+// Границы цены для ползунка: от 0 до ближайшей тысячи выше самой дорогой позиции базового каталога.
+// Товары дороже (созданные в админке) не отсекаются, пока верхняя граница не сдвинута
 export const PRICE_MIN = 0;
 export const PRICE_MAX = Math.ceil(Math.max(...products.map((p) => p.price)) / 1000) * 1000;
 
@@ -62,7 +63,7 @@ export function filterProducts(list, filters, history = []) {
     if (!intersects(filters.gender, p.gender)) return false;
     if (!intersects(filters.size, p.sizes)) return false;
     if (!intersects(filters.color, p.colors)) return false;
-    if (p.price < filters.min || p.price > filters.max) return false;
+    if (p.price < filters.min || (filters.max < PRICE_MAX && p.price > filters.max)) return false;
     if (query && !normalize(p.name).includes(query)) return false;
     return true;
   });
@@ -83,9 +84,9 @@ export const countFilters = (filters) =>
   LIST_KEYS.reduce((sum, key) => sum + filters[key].length, 0) +
   (filters.min > PRICE_MIN || filters.max < PRICE_MAX ? 1 : 0);
 
-// Похожие товары — та же категория; «с этим покупают» — другие категории
-export const similarProducts = (product, limit = 4) =>
-  sortProducts(products.filter((p) => p.id !== product.id && p.category === product.category), 'popular').slice(0, limit);
+// Похожие товары — та же категория; «с этим покупают» — другие категории (list — товары витрины)
+export const similarProducts = (product, list, limit = 4) =>
+  sortProducts(list.filter((p) => p.id !== product.id && p.category === product.category), 'popular').slice(0, limit);
 
-export const relatedProducts = (product, limit = 4) =>
-  sortProducts(products.filter((p) => p.category !== product.category), 'popular').slice(0, limit);
+export const relatedProducts = (product, list, limit = 4) =>
+  sortProducts(list.filter((p) => p.category !== product.category), 'popular').slice(0, limit);

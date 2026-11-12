@@ -1,0 +1,54 @@
+.sales-page__title {
+  margin-bottom: 20px;
+}
+
+.sales-page__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.sales-page__select {
+  width: calc(50% - 6px);
+}
+
+.sales-page__select_size_s {
+  width: 108px;
+}
+
+/* Итоги: мобильная — плитки по две; с 1024 px — две колонки строк, как в макете */
+.sales-page__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+@media (min-width: 600px) {
+  .sales-page__select {
+    width: 178px;
+  }
+
+  .sales-page__stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .sales-page__title {
+    margin-bottom: 26px;
+  }
+
+  .sales-page__controls {
+    gap: 30px;
+    margin-bottom: 26px;
+  }
+
+  .sales-page__stats {
+    grid-template-columns: 212px auto;
+    justify-content: start;
+    gap: 14px 0;
+    margin-top: 20px;
+  }
+}

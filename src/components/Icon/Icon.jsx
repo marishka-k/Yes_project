@@ -122,6 +122,52 @@ const icons = {
   },
   minus: { box: '0 0 16 16', body: <path fill="currentColor" d="M2 7h12v2H2z" /> },
   plus: { box: '0 0 16 16', body: <path fill="currentColor" d="M7 2h2v5h5v2H9v5H7V9H2V7h5z" /> },
+
+  // Иконки админки (по образцу UI Kit): карандаш, глаз / перечёркнутый глаз, копирование, аватар «A»
+  pencil: {
+    box: '0 0 24 24',
+    body: <path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25ZM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83Z" />,
+  },
+  eye: {
+    box: '0 0 24 24',
+    body: (
+      <path
+        fill="currentColor"
+        d="M12 5C7 5 2.73 8.11 1 12.5 2.73 16.89 7 20 12 20s9.27-3.11 11-7.5C21.27 8.11 17 5 12 5Zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
+      />
+    ),
+  },
+  'eye-off': {
+    box: '0 0 24 24',
+    body: (
+      <>
+        <path
+          fill="currentColor"
+          d="M12 5C7 5 2.73 8.11 1 12.5 2.73 16.89 7 20 12 20s9.27-3.11 11-7.5C21.27 8.11 17 5 12 5Zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
+        />
+        <path stroke="var(--icon-fill, #f0f4f7)" strokeWidth="4" d="M4 3.5 20.5 21" />
+        <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M4 3.5 20.5 21" />
+      </>
+    ),
+  },
+  copy: {
+    box: '0 0 20 20',
+    body: (
+      <path
+        fill="currentColor"
+        d="M13 1H3a2 2 0 0 0-2 2v12h2V3h10V1Zm3 4H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 12H7V7h9v10Z"
+      />
+    ),
+  },
+  avatar: {
+    box: '0 0 34 34',
+    body: (
+      <>
+        <circle cx="17" cy="17" r="16" fill="none" stroke="currentColor" strokeWidth="2" />
+        <path fill="currentColor" fillRule="evenodd" d="M9.6 25 15.2 9h3.6l5.6 16h-3.6l-1.2-3.6h-5.2L13.2 25H9.6Zm5.6-6.6h3.6L17 12.9l-1.8 5.5Z" />
+      </>
+    ),
+  },
 };
 
 export default function Icon({ name, width, height, className }) {

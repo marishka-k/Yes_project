@@ -5,7 +5,7 @@ import { lineKey } from '../utils/order';
 // Общее состояние сайта, хранится в localStorage:
 // cart — [{ key, id, size, color, qty }], favorites — [id], history — [id] (последние просмотренные),
 // promo — применённый промокод, orders — оформленные заказы (новые сверху).
-// orders — основа для списка заказов и аналитики админки на этапе 2
+// orders — заказы покупателя: их видят «Заказы» в профиле и админка (вместе с демо-заказами)
 const StoreContext = createContext(null);
 
 const HISTORY_LIMIT = 8;
@@ -59,6 +59,12 @@ export function StoreProvider({ children }) {
 
   const addOrder = useCallback((order) => setOrders((prev) => [order, ...prev]), [setOrders]);
 
+  // Смена статуса в админке: patch — { status } и/или { paymentStatus }
+  const updateOrder = useCallback(
+    (number, patch) => setOrders((prev) => prev.map((o) => (o.number === number ? { ...o, ...patch } : o))),
+    [setOrders],
+  );
+
   const value = useMemo(
     () => ({
       cart,
@@ -75,8 +81,9 @@ export function StoreProvider({ children }) {
       addToHistory,
       setPromo,
       addOrder,
+      updateOrder,
     }),
-    [cart, favorites, history, promo, orders, addToCart, setQty, removeLine, clearCart, qtyInCart, toggleFavorite, addToHistory, setPromo, addOrder],
+    [cart, favorites, history, promo, orders, addToCart, setQty, removeLine, clearCart, qtyInCart, toggleFavorite, addToHistory, setPromo, addOrder, updateOrder],
   );
 
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;

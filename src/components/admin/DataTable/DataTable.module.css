@@ -1,0 +1,101 @@
+.data-table {
+  width: 100%;
+  font-size: var(--fs-body);
+  line-height: 1.25;
+  text-align: left;
+}
+
+/* Мобильная: строка — карточка, ячейка — «подпись: значение» */
+.data-table__head {
+  display: none;
+}
+
+.data-table tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.data-table__row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-s);
+  background: var(--color-card);
+}
+
+.data-table__cell {
+  display: grid;
+  grid-template-columns: minmax(96px, 40%) minmax(0, 1fr);
+  gap: 8px;
+  padding: 0;
+  font-weight: inherit;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.data-table__cell::before {
+  content: attr(data-label);
+  color: var(--color-secondary);
+}
+
+.data-table__cell_no-label {
+  display: block;
+}
+
+.data-table__cell_no-label::before {
+  content: none;
+}
+
+@media (min-width: 1024px) {
+  .data-table {
+    border-collapse: separate;
+    border-spacing: 0 12px;
+    margin: -12px 0;
+  }
+
+  .data-table__head {
+    display: table-header-group;
+  }
+
+  .data-table tbody {
+    display: table-row-group;
+  }
+
+  .data-table__row {
+    display: table-row;
+    padding: 0;
+    border: 0;
+  }
+
+  .data-table__th {
+    padding: 0 8px 0 10px;
+    font-weight: 400;
+    vertical-align: bottom;
+  }
+
+  .data-table__cell {
+    display: table-cell;
+    padding: 12px 8px 12px 10px;
+    border-top: 1px solid var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+    background: var(--color-card);
+    vertical-align: middle;
+  }
+
+  .data-table__cell::before {
+    content: none;
+  }
+
+  .data-table__cell:first-child {
+    border-left: 1px solid var(--color-accent);
+    border-radius: var(--radius-s) 0 0 var(--radius-s);
+  }
+
+  .data-table__cell:last-child {
+    border-right: 1px solid var(--color-accent);
+    border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  }
+}

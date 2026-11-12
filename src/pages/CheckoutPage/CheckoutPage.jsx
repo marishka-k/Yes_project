@@ -12,6 +12,7 @@ import OrderSummary from '../../components/OrderSummary/OrderSummary';
 import DeliveryMapModal from '../../components/DeliveryMapModal/DeliveryMapModal';
 import OrderSuccessModal from '../../components/OrderSuccessModal/OrderSuccessModal';
 import { useStore } from '../../store/StoreContext';
+import { useCatalog } from '../../store/CatalogContext';
 import { addressFields, deliveryMethods } from '../../data/delivery';
 import { consents, paymentMethods, paymentSystems } from '../../data/checkout';
 import { asset } from '../../utils/asset';
@@ -71,7 +72,8 @@ export default function CheckoutPage() {
   const [order, setOrder] = useState(null);
   const formRef = useRef(null);
 
-  const lines = cartLines(cart);
+  const { productById } = useCatalog();
+  const lines = cartLines(cart, productById);
   const totals = orderTotals(lines, { promo, delivery: values.delivery, payment: values.payment });
   const errors = submitted ? validateCheckout(values) : {};
   const allConsents = consents.every((c) => values.consents[c.id]);

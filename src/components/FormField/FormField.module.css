@@ -15,7 +15,8 @@
   padding: 0 8px;
   border: 1px solid var(--color-accent);
   border-radius: var(--radius-s);
-  background: var(--color-card);
+  /* --field-bg: в форме товара админки поля цвета фона, как в макете */
+  background: var(--field-bg, var(--color-card));
   font-size: var(--fs-body);
   color: var(--color-text);
 }
@@ -50,4 +51,22 @@ textarea.form-field__input {
   font-size: var(--fs-body);
   line-height: 1.2;
   color: var(--color-error);
+}
+
+/* Подпись слева от поля (форма товара в админке); на телефоне — над полем */
+.form-field_layout_row .form-field__label {
+  line-height: 1.1;
+}
+
+@media (min-width: 600px) {
+  .form-field_layout_row {
+    display: grid;
+    grid-template-columns: var(--form-label-w, 100px) minmax(0, var(--form-control-w, 1fr));
+    align-items: center;
+    gap: 4px 0;
+  }
+
+  .form-field_layout_row .form-field__error {
+    grid-column: 2;
+  }
 }

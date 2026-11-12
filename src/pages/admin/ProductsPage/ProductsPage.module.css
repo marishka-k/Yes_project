@@ -1,0 +1,97 @@
+.products-page__filters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.products-page__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.products-page__name {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.products-page__meta {
+  display: block;
+  font-weight: 400;
+}
+
+.products-page__meta + .products-page__meta {
+  margin-top: 4px;
+}
+
+.products-page__values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 12px;
+}
+
+.products-page__discount {
+  color: var(--color-secondary);
+}
+
+.products-page__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+@media (min-width: 1024px) {
+  .products-page__filters {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+  }
+
+  .products-page__search {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  /* Колонки по макету (920 px): товар | цвета | размеры | цена | скидка | действия */
+  .products-page__col-name {
+    width: 33%;
+  }
+
+  .products-page__col-colors {
+    width: 22%;
+  }
+
+  .products-page__col-sizes {
+    width: 11%;
+  }
+
+  .products-page__col-price,
+  .products-page__col-discount {
+    white-space: nowrap;
+  }
+
+  .products-page__col-actions {
+    width: 56px;
+  }
+
+  .products-page__values {
+    flex-direction: column;
+  }
+
+  .products-page__actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1440px) {
+  .products-page__chips {
+    gap: 20px;
+  }
+}

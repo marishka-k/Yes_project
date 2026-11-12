@@ -3,7 +3,7 @@ import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import ProductGrid from '../../components/ProductGrid/ProductGrid';
 import Container from '../../components/Container/Container';
 import { useStore } from '../../store/StoreContext';
-import { products, productById } from '../../data/products';
+import { useCatalog } from '../../store/CatalogContext';
 import { HOME_LIMIT, homeSections } from '../../data/content';
 import { sortProducts } from '../../utils/catalog';
 import styles from './HomePage.module.css';
@@ -23,6 +23,7 @@ function HomeSection({ id, title, link, note, items }) {
 
 export default function HomePage() {
   const { history } = useStore();
+  const { products, productById } = useCatalog();
   const recent = history.map((id) => productById[id]).filter(Boolean).slice(0, HOME_LIMIT);
   const hasRecent = recent.length > 0;
 

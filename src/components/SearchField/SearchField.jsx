@@ -4,8 +4,10 @@ import Icon from '../Icon/Icon';
 import { cx } from '../../utils/cx';
 import styles from './SearchField.module.css';
 
-// Поиск из шапки: отправка ведёт в каталог с параметром ?q=
-export default function SearchField({ className, onSearch }) {
+// Поиск из шапки: отправка ведёт в каталог с параметром ?q=.
+// С onChange — управляемое поле без перехода (поиск в списках админки)
+export default function SearchField({ className, onSearch, value: outerValue, onChange, label = 'Поиск по каталогу' }) {
+  const controlled = typeof onChange === 'function';
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [params] = useSearchParams();
@@ -19,6 +21,7 @@ export default function SearchField({ className, onSearch }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (controlled) return;
     const next = new URLSearchParams(pathname === '/catalog' ? params : undefined);
     if (value.trim()) next.set('q', value.trim());
     else next.delete('q');
@@ -29,15 +32,15 @@ export default function SearchField({ className, onSearch }) {
   return (
     <form className={cx(styles['search-field'], className)} role="search" onSubmit={handleSubmit}>
       <label className="visually-hidden" htmlFor={id}>
-        Поиск по каталогу
+        {label}
       </label>
       <input
         id={id}
         className={styles['search-field__input']}
         type="search"
         placeholder="Поиск"
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
+        value={controlled ? outerValue : value}
+        onChange={(event) => (controlled ? onChange(event.target.value) : setValue(event.target.value))}
         autoComplete="off"
       />
       <button className={styles['search-field__button']} type="submit" aria-label="Найти">

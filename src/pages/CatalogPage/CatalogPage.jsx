@@ -13,7 +13,7 @@ import ProductGrid from '../../components/ProductGrid/ProductGrid';
 import EmptyState from '../../components/EmptyState/EmptyState';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { useStore } from '../../store/StoreContext';
-import { products } from '../../data/products';
+import { useCatalog } from '../../store/CatalogContext';
 import { categories, categoryById, colorById, genderById, sortOptions } from '../../data/categories';
 import { PRICE_MAX, PRICE_MIN, countFilters, filterProducts, filtersToParams, parseFilters, sortProducts } from '../../utils/catalog';
 import { formatNumber, plural } from '../../utils/format';
@@ -45,12 +45,13 @@ function activeTags(filters) {
 export default function CatalogPage() {
   const [params, setParams] = useSearchParams();
   const { history } = useStore();
+  const { products } = useCatalog();
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const query = params.toString();
   const filters = useMemo(() => parseFilters(new URLSearchParams(query)), [query]);
-  const list = useMemo(() => sortProducts(filterProducts(products, filters, history), filters.sort), [filters, history]);
+  const list = useMemo(() => sortProducts(filterProducts(products, filters, history), filters.sort), [products, filters, history]);
 
   const update = (patch) => setParams(filtersToParams({ ...filters, ...patch }), { replace: true });
   const applyPanel = (next) => {

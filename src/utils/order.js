@@ -1,12 +1,12 @@
-import { productById } from '../data/products';
 import { ONLINE_DISCOUNT, promoCodes } from '../data/checkout';
 import { deliveryMethodById } from '../data/delivery';
 
 // Ключ позиции корзины: один товар в разных размерах и цветах — разные позиции
 export const lineKey = (id, size, color) => [id, size || '-', color || '-'].join('|');
 
-// Позиции корзины с данными товаров (товары, которых нет в каталоге, пропускаются)
-export const cartLines = (cart) =>
+// Позиции корзины с данными товаров (товары, которых нет на витрине или они в архиве, пропускаются).
+// productById — актуальный каталог из CatalogContext (базовые товары + правки админки)
+export const cartLines = (cart, productById) =>
   cart.filter((line) => productById[line.id]).map((line) => ({ ...line, product: productById[line.id] }));
 
 export const itemsCount = (lines) => lines.reduce((sum, line) => sum + line.qty, 0);

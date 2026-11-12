@@ -6,14 +6,15 @@ import CartSummary from '../../components/CartSummary/CartSummary';
 import EmptyState from '../../components/EmptyState/EmptyState';
 import ProductGrid from '../../components/ProductGrid/ProductGrid';
 import { useStore } from '../../store/StoreContext';
-import { products, productById } from '../../data/products';
+import { useCatalog } from '../../store/CatalogContext';
 import { sortProducts } from '../../utils/catalog';
 import { cartLines } from '../../utils/order';
 import styles from './CartPage.module.css';
 
 export default function CartPage() {
   const { cart, history, setQty, removeLine } = useStore();
-  const lines = cartLines(cart);
+  const { products, productById } = useCatalog();
+  const lines = cartLines(cart, productById);
   const inCart = new Set(lines.map((l) => l.id));
   const recent = history.map((id) => productById[id]).filter(Boolean).slice(0, 4);
   const recommended = sortProducts(products.filter((p) => !inCart.has(p.id)), 'rating').slice(0, 4);

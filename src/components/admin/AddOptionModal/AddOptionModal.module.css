@@ -1,0 +1,31 @@
+.add-option {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 420px;
+  margin: 20px auto 0;
+}
+
+.add-option__color {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.add-option__picker {
+  width: 48px;
+  height: 32px;
+  padding: 2px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-s);
+  background: var(--color-bg);
+  cursor: pointer;
+}
+
+.add-option__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}

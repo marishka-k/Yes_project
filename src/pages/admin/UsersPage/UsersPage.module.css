@@ -1,0 +1,51 @@
+.users-page__note {
+  margin: 12px 0 16px;
+  color: var(--color-secondary);
+}
+
+.users-page__name {
+  display: block;
+  font-weight: 700;
+}
+
+.users-page__contact {
+  display: block;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.users-page__meta {
+  display: block;
+  color: var(--color-secondary);
+}
+
+.users-page__sum {
+  white-space: nowrap;
+}
+
+.users-page__action {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .users-page__col-name {
+    width: 32%;
+  }
+
+  .users-page__col-action {
+    width: 190px;
+    text-align: right;
+  }
+
+  .users-page__action {
+    width: auto;
+    padding: 4px 12px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .users-page__action {
+    padding: 4px 20px;
+    white-space: nowrap;
+  }
+}

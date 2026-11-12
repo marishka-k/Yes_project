@@ -1,0 +1,53 @@
+/* Шаги 56 px друг от друга, кружок 32 px, подпись 20 SemiBold (макет order info) */
+.order-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-timeline__step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 56px;
+  color: var(--color-secondary);
+}
+
+/* Линия к следующему шагу: пунктир, пройденный участок — сплошной акцентный */
+.order-timeline__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: calc(50% + 16px);
+  left: 15px;
+  height: calc(100% - 32px);
+  border-left: 2px dashed var(--color-secondary);
+}
+
+.order-timeline__step_passed:not(:last-child)::after {
+  border-left-style: solid;
+  border-left-color: var(--color-accent);
+}
+
+.order-timeline__mark {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.order-timeline__label {
+  font-size: var(--fs-card-name);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.order-timeline__step_done {
+  color: var(--color-accent);
+}
+
+.order-timeline__step_alert {
+  color: var(--color-error);
+}

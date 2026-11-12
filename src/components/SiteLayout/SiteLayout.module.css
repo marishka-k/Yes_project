@@ -1,19 +1,19 @@
-.app {
+.site-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.app__main {
+.site-layout__main {
   flex: 1;
 }
 
-.app__main:focus {
+.site-layout__main:focus {
   outline: none;
 }
 
 /* Ссылка «К содержимому» — видна только при фокусе с клавиатуры */
-.app__skip {
+.site-layout__skip {
   position: absolute;
   top: 8px;
   left: 8px;
@@ -26,6 +26,6 @@
   transform: translateY(-200%);
 }
 
-.app__skip:focus {
+.site-layout__skip:focus {
   transform: none;
 }

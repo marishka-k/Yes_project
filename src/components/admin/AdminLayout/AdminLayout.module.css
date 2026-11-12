@@ -1,0 +1,56 @@
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.admin-layout__main {
+  flex: 1;
+}
+
+.admin-layout__main:focus {
+  outline: none;
+}
+
+.admin-layout__skip {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 200;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: var(--radius-s);
+  background: var(--color-accent);
+  font-weight: 700;
+  transform: translateY(-200%);
+}
+
+.admin-layout__skip:focus {
+  transform: none;
+}
+
+/* Плашка демо-режима над шапкой (в макете её нет) */
+.admin-layout__demo {
+  background: var(--color-accent);
+  font-size: var(--fs-body);
+  line-height: 1.25;
+}
+
+.admin-layout__demo-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.admin-layout__site-link {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.admin-layout__site-link:hover {
+  color: var(--color-white);
+}

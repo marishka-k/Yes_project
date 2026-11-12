@@ -1,0 +1,9 @@
+.product-edit-page__title {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 1024px) {
+  .product-edit-page__title {
+    margin: -12px 0 24px;
+  }
+}

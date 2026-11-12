@@ -64,6 +64,14 @@
   --button-h: 30px;
   --button-l-h: 48px;
   --check-size: 20px;
+
+  /* Админка (этап 2): ширина бокового меню, отступы, высота графика продаж.
+     На мобильной меню — в выезжающей панели (бургер в шапке) */
+  --admin-side-w: 0px;
+  --admin-gap: 16px;
+  --admin-top: 16px;
+  --admin-bottom: 40px;
+  --chart-h: 280px;
 }
 
 /* Планшет — карточки на всю ширину, 3 колонки (макета нет) */
@@ -115,6 +123,12 @@
     --page-top: 28px;
     --card-pad: 12px;
     --button-l-h: 53px;
+
+    --admin-side-w: 260px;
+    --admin-gap: 24px;
+    --admin-top: 28px;
+    --admin-bottom: 48px;
+    --chart-h: 360px;
   }
 }
 
@@ -137,6 +151,12 @@
     --grid-gap: 30px;
     --banner-h: 98px;
     --page-top: 29px;
+
+    --admin-side-w: 288px;
+    --admin-gap: 30px;
+    --admin-top: 34px;
+    --admin-bottom: 54px;
+    --chart-h: 420px;
   }
 }
 

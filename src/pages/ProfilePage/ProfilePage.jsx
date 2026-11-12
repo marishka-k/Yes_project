@@ -2,13 +2,14 @@ import Container from '../../components/Container/Container';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import EmptyState from '../../components/EmptyState/EmptyState';
+import Button from '../../components/Button/Button';
 import { useStore } from '../../store/StoreContext';
 import { orderStatuses, paymentStatuses } from '../../data/orders';
 import { formatDate, formatPrice } from '../../utils/format';
 import styles from './ProfilePage.module.css';
 
 // Личный кабинет (упрощённо): заказы из localStorage.
-// Полный список заказов с вкладками «Актуальные / Завершённые» и карточкой заказа — этап 2
+// Статусы меняются в админке (этап 2), вход в неё — кнопкой внизу страницы
 export default function ProfilePage() {
   const { orders } = useStore();
 
@@ -45,6 +46,12 @@ export default function ProfilePage() {
         <EmptyState icon="user" title="Заказов пока нет" text="Оформленные заказы появятся здесь." action={{ label: 'Перейти в каталог', to: '/catalog' }} />
       )}
       <p className={styles['profile-page__note']}>Демо: заказы хранятся только в этом браузере.</p>
+      <div className={styles['profile-page__admin']}>
+        <p>Учебная админка: аналитика продаж, товары, заказы и покупатели. Без авторизации.</p>
+        <Button to="/admin" variant="secondary">
+          Перейти в админку
+        </Button>
+      </div>
     </Container>
   );
 }

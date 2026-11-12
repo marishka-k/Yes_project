@@ -1,0 +1,41 @@
+.admin-page {
+  padding-top: var(--admin-top);
+  padding-bottom: var(--admin-bottom);
+}
+
+.admin-page__body {
+  margin-top: 20px;
+}
+
+.admin-page__sidebar {
+  display: none;
+}
+
+.admin-page__content {
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .admin-page__body {
+    margin-top: 40px;
+  }
+
+  .admin-page__body_with-sidebar {
+    display: grid;
+    grid-template-columns: var(--admin-side-w) minmax(0, 1fr);
+    gap: var(--admin-gap);
+    align-items: start;
+  }
+
+  /* В макете рамка меню тянется ниже содержимого (770 px на 1440) */
+  .admin-page__sidebar {
+    display: block;
+    min-height: 640px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .admin-page__sidebar {
+    min-height: 770px;
+  }
+}
